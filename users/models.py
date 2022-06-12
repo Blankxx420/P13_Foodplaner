@@ -3,12 +3,13 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, username, password=None):
+    def create_user(self, email, username, phone_number, password=None):
         """Creates and saves a User with the given data
         Args:
             email (str): Given email.
             username (str): Given username.
             password (str, optional): Given password. Defaults to None.
+            phone_number (str): Given phone number
         Raises:
             ValueError: In case no email address entered
         Returns:
@@ -20,13 +21,14 @@ class UserManager(BaseUserManager):
         user = self.model(
             email=self.normalize_email(email),
             username=username,
+            phone_number=phone_number,
         )
 
         user.set_password(password)  # hashes the pwd
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, username, password=None):
+    def create_superuser(self, email, username, phone_number, password=None):
         """Creates and saves a superuser with the given data
         Args:
             email (str): Given email.
@@ -34,11 +36,15 @@ class UserManager(BaseUserManager):
             password (str, optional): Given password. Defaults to None.
         Returns:
             obj: Superuser
+            :param password:
+            :param email:
+            :param phone_number:
         """
         user = self.create_user(
             email,
             password=password,
             username=username,
+            phone_number=phone_number,
         )
         user.is_admin = True
         user.save(using=self._db)
@@ -67,7 +73,7 @@ class User(AbstractBaseUser):
     objects = UserManager()
 
     USERNAME_FIELD = "email"  # login_field
-    REQUIRED_FIELDS = ["username"]  # pwd is automatically required
+    REQUIRED_FIELDS = ["username", "phone_number"]  # pwd is automatically required
 
     def __str__(self):
         return self.email
