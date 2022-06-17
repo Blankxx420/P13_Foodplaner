@@ -36,9 +36,6 @@ class UserManager(BaseUserManager):
             password (str, optional): Given password. Defaults to None.
         Returns:
             obj: Superuser
-            :param password:
-            :param email:
-            :param phone_number:
         """
         user = self.create_user(
             email,
