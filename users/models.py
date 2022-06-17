@@ -48,12 +48,6 @@ class UserManager(BaseUserManager):
         return user
 
 
-def has_perm(perm):
-    """Does the user have a specific permission?"""
-    # Simplest possible answer: Yes, always
-    return True
-
-
 class User(AbstractBaseUser):
     """Create table with custom fields in database"""
 
@@ -80,6 +74,10 @@ class User(AbstractBaseUser):
         # Simplest possible answer: Yes, always
         return True
 
+    def has_perm(self, perm, obj=None):
+        """Does the user have a specific permission?"""
+        # Simplest possible answer: Yes, always
+        return True
     @property
     def is_staff(self):
         """Is the user a member of staff?"""
