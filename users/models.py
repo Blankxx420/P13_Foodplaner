@@ -66,7 +66,7 @@ class User(AbstractBaseUser):
         unique=True,
     )
     username = models.CharField(max_length=60, default="utilisateur")
-    phone_number = models.CharField(max_length=12, unique=True, null=False)
+    phone_number = models.CharField(max_length=10, unique=True, null=False)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
 
