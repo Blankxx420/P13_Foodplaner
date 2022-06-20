@@ -63,7 +63,7 @@ MIDDLEWARE = [
 ]
 AUTH_USER_MODEL = "users.User"
 ROOT_URLCONF = 'Foodplaner.urls'
-LOGIN_REDIRECT_URL = "/account/"
+LOGIN_REDIRECT_URL = ""
 
 TEMPLATES = [
     {
