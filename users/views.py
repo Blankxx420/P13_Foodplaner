@@ -20,7 +20,7 @@ def register(request):
                 request, f"Compte créé pour l'adresse email : {email} !")
             user = authenticate(email=email, password=raw_password)
             login(request, user)
-            return redirect("home")
+            return redirect("menu/home.html")
     else:
         form = UserRegistrationForm()
     return render(

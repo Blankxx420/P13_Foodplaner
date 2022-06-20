@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 from dotenv import find_dotenv, load_dotenv
-from .urls import urlpatterns
+
 
 load_dotenv(find_dotenv())
 
@@ -63,7 +63,7 @@ MIDDLEWARE = [
 ]
 AUTH_USER_MODEL = "users.User"
 ROOT_URLCONF = 'Foodplaner.urls'
-LOGIN_REDIRECT_URL = ""
+LOGIN_REDIRECT_URL = "menu:home"
 
 TEMPLATES = [
     {
