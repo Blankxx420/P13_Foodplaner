@@ -2,9 +2,10 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 
 # uses custom form instead of UserCreationForm
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, UserUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from .models import User
 
 
 def register(request):
@@ -31,4 +32,15 @@ def register(request):
 @login_required  # only allows this page to logged_in users
 def account(request):
     """Displays the account page when a user is logged in"""
-    return render(request, "users/account.html")
+    if request.method == "POST":
+        update_user_form = UserUpdateForm(request.POST, instance=request.user)
+        if update_user_form.is_valid():
+            update_user_form.save()
+            messages.success(request, f"Votre compte à été mis à jour !")
+            return redirect('account')
+    else:
+        update_user_form = UserUpdateForm(instance=request.user)
+        context = {
+            "update_user_form": update_user_form
+        }
+        return render(request, "users/account.html", context)

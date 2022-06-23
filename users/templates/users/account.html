@@ -16,7 +16,20 @@
 </header>
 <section class="page-section bg-light" id="account">
   <div class="container">
-
+       <div class="row h-100">
+            <p><strong>votre addresse email :</strong> {{ user.email }}</p>
+            <p><strong>votre nom d'utilisateur :</strong> {{ user.username }}</p>
+            <p><strong>votre addresse email :</strong> {{ user.phone_number }}</p>
+    </div>
+    <form method="POST">
+                {% csrf_token%}
+                <fieldset class="form-group" enctype="multipart/form-data">
+                    {{ update_user_form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Mettre à jour</button>
+                </div>
+            </form>
   </div>
 </section>
 

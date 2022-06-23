@@ -11,3 +11,11 @@ class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["email", "username", "phone_number", "password1", "password2"]
+
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField(max_length=254)
+
+    class Meta:
+        model = User
+        fields = ["email", "username", "phone_number"]
