@@ -26,7 +26,7 @@ class Dish(models.Model):
 
 
 class Date(models.Model):
-    day = models.DateField()
+    day = models.CharField(max_length=120, null=False, unique=True)
     time_days = models.CharField(max_length=120, null=False, unique=True)
 
     # pk ?
