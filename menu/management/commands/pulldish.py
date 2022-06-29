@@ -3,10 +3,14 @@ from django.core.management import BaseCommand
 from menu.models import Dish
 
 
+def clear_db_dish():
+    Dish.objects.all().delete()
+
+
 class Command(BaseCommand):
 
     def handle(self):
-        self.clear_db_dish()
+        clear_db_dish()
         try:
             with open('menu/dish.json', 'r') as dish_file:
                 dish_data = json.load(dish_file)
@@ -19,7 +23,3 @@ class Command(BaseCommand):
                 self.stdout.write(self.style.SUCCESS('Les plats ont correctement été ajoutés dans la base de données'))
         except ValueError:
             self.stderr.write(self.style.ERROR('Une erreur est survenu.\nIl se peut que les aliments existe déjà.'))
-
-    def clear_db_dish(self):
-        dish_object = Dish.objects.all()
-        dish_object.delete()
