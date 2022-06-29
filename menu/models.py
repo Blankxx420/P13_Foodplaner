@@ -38,7 +38,7 @@ class Menu(models.Model):
     menu_name = models.CharField(max_length=120, null=False, unique=True)
     notify_sms = models.BooleanField(default=False)
     user_menu = models.ForeignKey(User, on_delete=models.CASCADE)
-    menu_date = models.ManyToManyField(Date, on_delete=models.CASCADE)
-    menu_dish = models.ManyToManyField(Dish, on_delete=models.CASCADE)
+    menu_date = models.ManyToManyField(Date)
+    menu_dish = models.ManyToManyField(Dish)
 
     # pk ?
