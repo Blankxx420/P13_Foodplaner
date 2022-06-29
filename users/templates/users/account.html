@@ -17,17 +17,19 @@
 <section class="page-section bg-light" id="account">
   <div class="container">
        <div class="row h-100">
+            <h3 style="margin-bottom:2rem">Vos information de compte</h3>
             <p><strong>votre addresse email :</strong> {{ user.email }}</p>
             <p><strong>votre nom d'utilisateur :</strong> {{ user.username }}</p>
             <p><strong>votre addresse email :</strong> {{ user.phone_number }}</p>
     </div>
+    <h3 style="margin-top:2rem">Mettre à jour vos informations</h3>
     <form method="POST">
                 {% csrf_token%}
                 <fieldset class="form-group" enctype="multipart/form-data">
                     {{ update_user_form|crispy }}
                 </fieldset>
                 <div class="form-group">
-                    <button class="btn btn-outline-info" type="submit">Mettre à jour</button>
+                    <button class="btn btn-primary" style ="margin-top: 1rem" type="submit">Mettre à jour</button>
                 </div>
             </form>
   </div>
