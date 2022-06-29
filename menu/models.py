@@ -13,6 +13,7 @@ Menu
 """
 
 from django.db import models
+from users.models import User
 
 
 class Dish(models.Model):
@@ -36,5 +37,8 @@ class Date(models.Model):
 class Menu(models.Model):
     menu_name = models.CharField(max_length=120, null=False, unique=True)
     notify_sms = models.BooleanField(default=False)
+    user_menu = models.ForeignKey(User, on_delete=models.CASCADE)
+    menu_date = models.ManyToManyField(Date, on_delete=models.CASCADE)
+    menu_dish = models.ManyToManyField(Dish, on_delete=models.CASCADE)
 
     # pk ?
