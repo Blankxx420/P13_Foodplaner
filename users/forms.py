@@ -14,7 +14,10 @@ class UserRegistrationForm(UserCreationForm):
 
 
 class UserUpdateForm(forms.ModelForm):
-    email = forms.EmailField(max_length=254)
+    """customize form for updating user information"""
+    email = forms.EmailField(initial=None, max_length=254)
+    username = forms.CharField(initial=None, max_length=254)
+    phone_number = forms.CharField(initial=None, max_length=12)
 
     class Meta:
         model = User

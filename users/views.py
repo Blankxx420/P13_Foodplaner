@@ -5,7 +5,6 @@ from django.contrib.auth import login, authenticate
 from .forms import UserRegistrationForm, UserUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from .models import User
 
 
 def register(request):
