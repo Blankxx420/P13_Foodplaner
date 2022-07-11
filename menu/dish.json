@@ -23,5 +23,29 @@
         "Poulet au four",
         "Pâte à la carbonara",
         "Tartiflette"
+    ],
+    "recipe": [
+        "recette1",
+        "recette2",
+        "recette3",
+        "recette4",
+        "recette5",
+        "recette6",
+        "recette7",
+        "recette8",
+        "recette9",
+        "recette10",
+        "recette11",
+        "recette12",
+        "recette13",
+        "recette14",
+        "recette15",
+        "recette16",
+        "recette17",
+        "recette18",
+        "recette19",
+        "recette20",
+        "recette21",
+        "recette22"
     ]
 }
