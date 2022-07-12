@@ -14,12 +14,14 @@ class Command(BaseCommand):
         try:
             with open('menu/dish.json', 'r') as dish_file:
                 dish_data = json.load(dish_file)
-                for dish_name, recipe in dish_data['name'] and dish_data['recipe']:
+                for dish_name in dish_data['name']:
                     if "'" in dish_name:
-                        Dish(dish_name=dish_name.replace("'", " "), recipe=recipe).save()
+                        Dish(dish_name=dish_name.replace("'", " ")).save()
                     else:
-                        Dish(dish_name=dish_name, recipe=recipe).save()
+                        Dish(dish_name=dish_name).save()
+
                     self.stdout.write(f"{self.style.SUCCESS(dish_name)} ajouté à la base de données")
                 self.stdout.write(self.style.SUCCESS('Les plats ont correctement été ajoutés dans la base de données'))
         except ValueError:
-            self.stderr.write(self.style.ERROR('Une erreur est survenu.\nIl se peut que les aliments existe déjà.'))
+            self.stderr.write(self.style.ERROR('Une erreur est survenu.\n'
+                                               'Il se peut que les aliments existe déjà.'))
