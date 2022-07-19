@@ -19,7 +19,8 @@ from users.models import User
 class Dish(models.Model):
     dish_name = models.CharField(max_length=120, null=False, unique=True)
     recipe = models.TextField(null=False, unique=True)
-    img_url = models.URLField(null=False, unique=True)
+    ingredients = models.TextField(null=False, unique=True)
+    serving = models.CharField(max_length=120, null=False)
     objects = models.Manager()
 
     def __str__(self):
