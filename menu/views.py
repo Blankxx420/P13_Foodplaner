@@ -13,4 +13,6 @@ def menu_am(request):
 
 
 def menu_pm(request):
-    return render(request, 'menu/menu_pm.html')
+    dish_obj = Dish.objects.all()
+    context = {'dish_obj': dish_obj}
+    return render(request, 'menu/menu_pm.html', context)

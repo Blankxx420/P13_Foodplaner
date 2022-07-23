@@ -49,15 +49,15 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                      <a href=""
+                      <a href="{% url 'menu:menu_am' %}"
                         class="nav-link js-scroll-trigger" title="Midi">
-                        <i class="fa-solid fa-sun"></i>
+                        <i class="fa-2x fas fa-sun"></i>
                       </a>
                     </li>
                     <li class="nav-item">
                       <a href=""
                         class="nav-link js-scroll-trigger" title="Soir">
-                        <i class="fa-solid fa-moon"></i>
+                        <i class="fa-2x fas fa-moon"></i>
                       </a>
                     </li>
                     <li class="nav-item">
@@ -81,7 +81,7 @@
         <div class="container">
             <div class="row" style="justify-content: center">
                 <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
-                    <a href="">Mentions légales</a>
+                    <a href="">Legal mentions</a>
                 </div>
                 <div class="col-lg-4 mr-auto text-center mb-5 mb-lg-0">
                     <a href="#contact">Contact</a>
