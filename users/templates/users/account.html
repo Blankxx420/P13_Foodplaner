@@ -8,7 +8,7 @@
     <div
       class="row h-100 align-items-center justify-content-center text-center">
       <div class="col-lg-10 align-self-end">
-        <h1 class="text-uppercase text-white font-weight-bold">Mon compte</h1>
+        <h1 class="text-uppercase text-white font-weight-bold">My account</h1>
         <hr class="divider my-4" />
       </div>
     </div>
@@ -16,7 +16,22 @@
 </header>
 <section class="page-section bg-light" id="account">
   <div class="container">
-    <h1 class="text-center">votre addresse email : {{ user.email }}</h1>
+       <div class="row h-100">
+            <h3 style="margin-bottom:2rem">Your account information </h3>
+            <p><strong>your email address :</strong> {{ user.email }}</p>
+            <p><strong>your username :</strong> {{ user.username }}</p>
+            <p><strong>your phone number:</strong> {{ user.phone_number }}</p>
+    </div>
+    <h3 style="margin-top:2rem">Update your profile</h3>
+    <form method="POST">
+                {% csrf_token%}
+                <fieldset class="form-group" enctype="multipart/form-data">
+                    {{ update_user_form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-primary" style ="margin-top: 1rem" type="submit">Update</button>
+                </div>
+            </form>
   </div>
 </section>
 

@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from dotenv import find_dotenv, load_dotenv
 
+
 load_dotenv(find_dotenv())
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -62,6 +63,7 @@ MIDDLEWARE = [
 ]
 AUTH_USER_MODEL = "users.User"
 ROOT_URLCONF = 'Foodplaner.urls'
+LOGIN_REDIRECT_URL = "menu:home"
 
 TEMPLATES = [
     {
@@ -119,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'fr-fr'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 

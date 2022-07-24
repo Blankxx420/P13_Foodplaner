@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}{% load static %}
+        <header class="masthead">
+            <div class="container px-4 px-lg-5 h-100">
+                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-8 align-self-end">
+                        <h1 class="text-white font-weight-bold">What are we eating this week ?</h1>
+                        <h2 class="text-white font-weight-bold">
+                        Don't think anymore create your menu for the week and get notify by sms</h2>
+                        <hr class="divider"/>
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                    <a href="{% url 'login' %}" id='btn_redirect_login' class="btn btn-outline-primary">it's over here</button>
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+{% endblock content %}
