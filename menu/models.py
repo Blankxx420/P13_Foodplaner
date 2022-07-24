@@ -30,6 +30,7 @@ class Dish(models.Model):
 class Date(models.Model):
     day = models.CharField(max_length=120, null=False, unique=True)
     time_days = models.CharField(max_length=120, null=False, unique=True)
+    objects = models.Manager()
 
     # pk ?
     def __str__(self):
@@ -38,9 +39,9 @@ class Date(models.Model):
 
 class Menu(models.Model):
     menu_name = models.CharField(max_length=120, null=False, unique=True)
-    notify_sms = models.BooleanField(default=False)
     user_menu = models.ForeignKey(User, on_delete=models.CASCADE)
     menu_date = models.ManyToManyField(Date)
     menu_dish = models.ManyToManyField(Dish)
+    objects = models.Manager()
 
     # pk ?
