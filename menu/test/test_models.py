@@ -27,6 +27,6 @@ class ModelsTestCase(TestCase):
                                    )
         self.assertEqual(str(dish), "Fish & chips")
 
-
     def test_date_str(self):
-        date = Date.
+        date = Date.objects.create(day="Sunday", time_days="am")
+        self.assertEqual(str(date), "Sunday")

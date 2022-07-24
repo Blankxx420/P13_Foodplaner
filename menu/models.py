@@ -32,7 +32,6 @@ class Date(models.Model):
     time_days = models.CharField(max_length=120, null=False, unique=True)
     objects = models.Manager()
 
-    # pk ?
     def __str__(self):
         return self.day
 
@@ -44,4 +43,4 @@ class Menu(models.Model):
     menu_dish = models.ManyToManyField(Dish)
     objects = models.Manager()
 
-    # pk ?
+

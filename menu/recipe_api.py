@@ -1,4 +1,5 @@
 import json
+import os
 
 import requests
 
@@ -7,7 +8,7 @@ class RecipeApi:
 
     def __init__(self):
         self.headers = {
-            "X-RapidAPI-Key": "9166955388mshb38ea575d8c7514p1fccf0jsnc146294343f9",
+            "X-RapidAPI-Key": os.getenv("API_TOKEN"),
             "X-RapidAPI-Host": "recipe-by-api-ninjas.p.rapidapi.com"
         }
         self.url = "https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe"
