@@ -5,7 +5,7 @@ python:
 
 addons:
   firefox: latest
-  postgresql: '14.0'
+  postgresql: lastest
 
 # safelist (indicate the only branches to check)
 branches:
