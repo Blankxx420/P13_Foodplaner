@@ -24,6 +24,7 @@ class RecipeApi:
                 response_data = response.json()
                 for dict_data in response_data:
                     dish_list.append(dict_data)
+            print(dish_list)
             return dish_list
 
 

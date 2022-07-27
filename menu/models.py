@@ -29,7 +29,7 @@ class Dish(models.Model):
 
 class Date(models.Model):
     day = models.CharField(max_length=120, null=False, unique=True)
-    time_days = models.CharField(max_length=120, null=False, unique=True)
+    time_days = models.CharField(max_length=120, null=False, unique=False)
     objects = models.Manager()
 
     def __str__(self):
@@ -42,5 +42,8 @@ class Menu(models.Model):
     menu_date = models.ManyToManyField(Date)
     menu_dish = models.ManyToManyField(Dish)
     objects = models.Manager()
+
+    def __str__(self):
+        return self.menu_name
 
 
