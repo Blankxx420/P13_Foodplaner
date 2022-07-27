@@ -5,7 +5,21 @@ python:
 
 addons:
   firefox: latest
-  postgresql: "14.0"
+  postgresql: '13'
+  apt:
+    packages:
+      - postgresql-13
+env:
+  global:
+    - DJANGO_SETTINGS_MODULE="Foodplaner.settings.travis"
+    - PGUSER=postgres
+    - PGPORT=5432
+    - PGHOST=localhost
+before_install:
+  - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
+  - sudo service postgresql restart
+  - sleep 1
+  - postgres --version
 
 # safelist (indicate the only branches to check)
 branches:
@@ -16,13 +30,10 @@ install:
   - pip install -r requirements.txt
 
 before_script:
-   - install-webdrivers --path webdrivers
-env:
-  global:
-    - DJANGO_SETTINGS_MODULE="Foodplaner.settings.travis"
-
+  - install-webdrivers --path webdrivers
 services:
   - postgresql
 
 script:
+  - psql -c 'create database travis_ci_test;' -U postgres
   - python manage.py test
