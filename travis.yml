@@ -9,7 +9,7 @@ addons:
 # safelist (indicate the only branches to check)
 branches:
   only:
-    - main
+    - dev
 
 install:
   - pip install -r requirements.txt
