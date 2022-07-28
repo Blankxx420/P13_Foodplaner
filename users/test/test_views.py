@@ -11,6 +11,7 @@ class TestUsersViews(TestCase):
             username="user1",
             email="user1@gmail.com",
             password="password1234",
+            phone_number="0798644565"
         )
         self.account_url = reverse("account")
         self.register_url = reverse("register")
@@ -19,6 +20,7 @@ class TestUsersViews(TestCase):
         data = {
             "username": "user1",
             "email": "user1@gmail.com",
+            "phone_number": "0798644565",
             "password1": "password1234",
             "password2": "password1234",
         }

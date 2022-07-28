@@ -8,6 +8,7 @@ class ModelsTestCase(TestCase):
             email="user1@gmail.com",
             username="user1",
             password="password1234",
+            phone_number="0798644565"
         )
         print(str(user))
         self.assertEqual(str(user), "user1@gmail.com")
@@ -17,6 +18,7 @@ class ModelsTestCase(TestCase):
             email="superuser1@gmail.com",
             username="superuser1",
             password="password1234",
+            phone_number="0798644565"
         )
         self.assertIs(superuser.is_admin, True)
 
@@ -25,5 +27,6 @@ class ModelsTestCase(TestCase):
             email="user1@gmail.com",
             username="user1",
             password="password1234",
+            phone_number="0798644565"
         )
         self.assertIs(user.is_admin, False)

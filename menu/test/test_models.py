@@ -33,7 +33,7 @@ class ModelsTestCase(TestCase):
         self.assertEqual(str(date), "Sunday")
 
     def test_menu_str(self):
-        user = User.objects.create()
+        user = User.objects.create(email="user@gmail.com", username='usertest', phone_number="0687574634")
         dish_1 = Dish.objects.create(dish_name='Fish & chips',
                                      recipe='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
                                             ' Donec gravida sollicitudin odio, et ultrices eros accumsan in.'
@@ -44,7 +44,7 @@ class ModelsTestCase(TestCase):
                                             ' Integer feugiat ipsum ac condimentum ultrices.'
                                             ' Suspendisse aliquam laoreet sem gravida molestie.',
 
-                                     ingredients='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                                     ingredients=' consectetur adipiscing elit.'
                                                  ' Donec gravida sollicitudin odio, et ultrices eros accumsan in.'
                                                  ' Duis in est magna. Sed sagittis in libero non lacinia.'
                                                  ' Ut quis justo ultrices, fringilla mi sed, feugiat elit. '
@@ -76,7 +76,7 @@ class ModelsTestCase(TestCase):
         date_2 = Date.objects.create(day="Monday", time_days="am")
         menu = Menu.objects.create(menu_name="menu1",
                                    user_menu=user,
-                                   menu_date=(date_1, date_2),
-                                   menu_dish=(dish_1, dish_2)
                                    )
+        menu.menu_date.add(date_1, date_2)
+        menu.menu_dish.add(dish_1, dish_2)
         self.assertEqual(str(menu), "menu1")
