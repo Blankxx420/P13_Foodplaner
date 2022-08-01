@@ -30,72 +30,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="text-center" id='trDish{{ user.id }}'>
-                            <td id="plat-lu-pl-1">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Choose your dish</option>
-                                {% for dish in dish_obj%}
-                                <option>{{ dish.dish_name }}</option>
+                    <form method='POST' enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {% for form in formset %}
+                                    {{ form.as_table }}
                                 {% endfor %}
-                               </td>
-                            <td id="plat-ma-pl-1">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Choose your dish</option>
-                                {% for dish in dish_obj%}
-                                <option>{{ dish.dish_name }}</option>
-                                {% endfor %}
-                               </td>
-                            </td>
-                            <td id="plat-me-pl-1">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Choose your dish</option>
-                                {% for dish in dish_obj%}
-                                <option>{{ dish.dish_name }}</option>
-                                {% endfor %}
-                               </td>
-                            </td>
-                            <td id="plat-je-pl-1">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Choose your dish</option>
-                                {% for dish in dish_obj%}
-                                <option>{{ dish.dish_name }}</option>
-                                {% endfor %}
-                               </td></td>
-                            <td id="plat-ve-pl-1"><select class="form-select" aria-label="Default select example">
-                                <option selected>Choose your dish</option>
-                                {% for dish in dish_obj%}
-                                <option>{{ dish.dish_name }}</option>
-                                {% endfor %}
-                               </td></td>
-                            <td id="plat-sa-pl-1"><select class="form-select" aria-label="Default select example">
-                                <option selected>Choose your dish</option>
-                                {% for dish in dish_obj%}
-                                <option>{{ dish.dish_name }}</option>
-                                {% endfor %}
-                               </td></td>
-                            <td id="plat-di-pl-1">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Choose your dish</option>
-                                {% for dish in dish_obj%}
-                                <option>{{ dish.dish_name }}</option>
-                                {% endfor %}
-                               </td></td>
-                            <td>
                                 <div class="d-flex-inline">
                                     <button type="button" class="btn btn-warning text-white" id="btnNotif"><i class="fas fa-bell"></i></button>
                                     <button type="button" class="btn btn-success" id="btnValidPlanning"><i class="fas fa-check"></i></button>
                                     <button type="button" class="btn btn-primary" id="btnEditPlanning"><i class="fas fa-pencil-alt"></i></button>
                                     <button type="button" class="btn btn-danger" id="btnRemovePlanning}"><i class="fas fa-trash-alt"></i></button>
                                 </div>
-                            </td>
-                        </tr>
+                       </form>
                     </tbody>
                 </table>
             </div>  <!-- end .col-12 -->
         </div> <!-- end .row -->
     </div> <!-- end .container-fluid -->
 </section>
-<script type='module' src="{% static 'dist/js/menu.js' %}"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 {% endblock content %}

@@ -32,54 +32,26 @@
                     <tbody>
                         <tr class="text-center" id='trDish{{ user.id }}'>
                             <td id="plat-lu-pl-1">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Choose your dish</option>
-                                {% for dish in dish_obj%}
-                                <option>{{ dish.dish_name }}</option>
-                                {% endfor %}
-                               </td>
+                                {{ menuform }}
                             <td id="plat-ma-pl-1">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Choose your dish</option>
-                                {% for dish in dish_obj%}
-                                <option>{{ dish.dish_name }}</option>
-                                {% endfor %}
-                               </td>
+                                {{ menuform }}
                             </td>
                             <td id="plat-me-pl-1">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Choose your dish</option>
-                                {% for dish in dish_obj%}
-                                <option>{{ dish.dish_name }}</option>
-                                {% endfor %}
-                               </td>
+                                 {{ menuform }}
                             </td>
                             <td id="plat-je-pl-1">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Choose your dish</option>
-                                {% for dish in dish_obj%}
-                                <option>{{ dish.dish_name }}</option>
-                                {% endfor %}
-                               </td></td>
-                            <td id="plat-ve-pl-1"><select class="form-select" aria-label="Default select example">
-                                <option selected>Choose your dish</option>
-                                {% for dish in dish_obj%}
-                                <option>{{ dish.dish_name }}</option>
-                                {% endfor %}
-                               </td></td>
-                            <td id="plat-sa-pl-1"><select class="form-select" aria-label="Default select example">
-                                <option selected>Choose your dish</option>
-                                {% for dish in dish_obj%}
-                                <option>{{ dish.dish_name }}</option>
-                                {% endfor %}
-                               </td></td>
+                             {{ menuform }}
+                            </td>
+                            <td id="plat-ve-pl-1">
+                            {{ menuform }}
+                            </td>
+                            <td id="plat-sa-pl-1">
+                             {{ menuform }}
+                            </td>
                             <td id="plat-di-pl-1">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Choose your dish</option>
-                                {% for dish in dish_obj%}
-                                <option>{{ dish.dish_name }}</option>
-                                {% endfor %}
-                               </td></td>
+                             {{ menuform }}
+                            </td>
+
                             <td>
                                 <div class="d-flex-inline">
                                     <button type="button" class="btn btn-warning text-white" id="btnNotif"><i class="fas fa-bell"></i></button>
