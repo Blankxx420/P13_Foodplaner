@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.forms import formset_factory
 from .models import Dish
@@ -12,13 +13,16 @@ def menu_am(request):
     DishFormSet = formset_factory(form=MenuForm, extra=6)
     if request.method == 'POST':
         formset = DishFormSet(request.POST)
-        context = {"formset": formset}
-        if formset.is_valid():
-            for form in formset:
-                form.save()
-            return render(request, 'menu/menu_am.html', context)
+        return HttpResponse(formset.cleaned_data)
+    data = {
+        'form-TOTAL_FORMS': '7',
+        'form-INITIAL_FORMS': '0',
+    }
+    formset = DishFormSet(data)
+    return render(request, 'menu/menu_am.html', {'formset': formset})
 
 
 def menu_pm(request):
-    context = {'menuform': MenuForm}
+    menuform = MenuForm()
+    context = {'menuform': menuform}
     return render(request, 'menu/menu_pm.html', context)

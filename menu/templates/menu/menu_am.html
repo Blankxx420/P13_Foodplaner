@@ -32,6 +32,7 @@
                     <tbody>
                     <form method='POST' enctype="multipart/form-data">
                                 {% csrf_token %}
+                                {{ formset.management_form }}
                                 {% for form in formset %}
                                     {{ form.as_table }}
                                 {% endfor %}
