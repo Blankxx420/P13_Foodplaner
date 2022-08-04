@@ -13,9 +13,6 @@
         <div class="container-fluid define-size-2 z-index-block">
         <div class="row h-100">
             <div class="col-12 col-lg-10 offset-lg-1 h-100" id="divContent">
-                <p class="lead text-white mt-5 animated fadeIn" id="userPlanning">Planning pour {{user.usernane}}</p>
-                <p class="d-none animated fadeIn" id="idUserDb"></p>
-                <p class="d-none animated fadeIn" id="idUserPlanning"></p>
                 <table class="table table-striped table-dark animated fadeIn" id="table{{ user.id }}">
                     <thead>
                         <tr class="text-center">
@@ -34,7 +31,7 @@
                                 {% csrf_token %}
                                 {{ formset.management_form }}
                                 {% for form in formset %}
-                                    {{ form.as_table }}
+                                    {{form}}
                                 {% endfor %}
                                 <div class="d-flex-inline">
                                     <button type="button" class="btn btn-warning text-white" id="btnNotif"><i class="fas fa-bell"></i></button>
