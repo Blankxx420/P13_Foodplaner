@@ -12,8 +12,8 @@
         <section>
         <div class="container-fluid define-size-2 z-index-block">
         <div class="row h-100">
-            <div class="col-12 col-lg-10 offset-lg-1 h-100" id="divContent">
-                <table class="table table-striped table-dark animated fadeIn" id="table{{ user.id }}">
+            <div class="col-12 col-lg-10 offset-lg-1 h-100 overflow-scroll" id="divContent">
+                <table class="table table-striped table-dark" id="table{{ user.id }}">
                     <thead>
                         <tr class="text-center">
                             <th scope="col">Sunday</th>
@@ -31,11 +31,11 @@
                                 {% csrf_token %}
                                 {{ formset.management_form }}
                                 {% for form in formset %}
-                                    {{form}}
+                                    {{form.as_table}}
                                 {% endfor %}
                                 <div class="d-flex-inline">
                                     <button type="button" class="btn btn-warning text-white" id="btnNotif"><i class="fas fa-bell"></i></button>
-                                    <button type="button" class="btn btn-success" id="btnValidPlanning"><i class="fas fa-check"></i></button>
+                                    <button type="submit" class="btn btn-success" id="btnValidPlanning"><i class="fas fa-check"></i></button>
                                     <button type="button" class="btn btn-primary" id="btnEditPlanning"><i class="fas fa-pencil-alt"></i></button>
                                     <button type="button" class="btn btn-danger" id="btnRemovePlanning}"><i class="fas fa-trash-alt"></i></button>
                                 </div>

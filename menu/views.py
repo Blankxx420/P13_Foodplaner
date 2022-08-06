@@ -10,15 +10,16 @@ def home(request):
 
 
 def menu_am(request):
-    DishFormSet = formset_factory(form=MenuForm, extra=6)
-    if request.method == 'POST':
-        formset = DishFormSet(request.POST)
-        return HttpResponse(formset.cleaned_data)
+    DishFormSet = formset_factory(form=MenuForm, extra=7)
     data = {
         'form-TOTAL_FORMS': '7',
         'form-INITIAL_FORMS': '0',
     }
     formset = DishFormSet(data)
+    if request == "POST":
+        formset = DishFormSet(request.POST)
+        if formset.is_valid():
+            return HttpResponse(formset.cleaned_data)
     return render(request, 'menu/menu_am.html', {'formset': formset})
 
 

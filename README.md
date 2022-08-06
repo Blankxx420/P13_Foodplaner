@@ -11,9 +11,18 @@ et vous pouvez créer votre menu pour la semaine ainsi que consulter les recette
 - créez votre base de données postgresql : ``CREATE DATABASE nom;``
 - Modifier le fichier .env avec les informations de connexion pour la base de données
 - Déplacer vous de le repertoire static : ``cd static``
-- Installation des package nodes : ``npm install ``
-- Executer la commande : `` npm run build ``
+- Installation des packages nodes : ``npm install ``
+- Exécuter la commande : `` npm run build ``
 - Retourner dans le repertoire racine: ``cd ..``
 - Faire les migrations pour la base de données: ``python3  manage.py makemigrations`` et ``python3  manage.py migrate``
-- Ajout des plat en base de données : `` python3  manage.py pulldish ``
+- Ajout des plats en base de données : `` python3  manage.py pulldish ``
+- Lancer le serveur local `` python3 manage.py runserver``
+
+## Fonctionnalités
+- Creation de compte
+- modification de compte
+- Création de menu
+- Suppression de menu
+- modification de menu
+- consultation de recettes
 

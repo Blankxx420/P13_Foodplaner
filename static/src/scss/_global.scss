@@ -32,7 +32,12 @@ body {
 .footer {
      margin-bottom: 0;
 }
-
+select {
+    width: 150px;
+}
+tbody tr {
+    display: table-cell;
+}
 #h3_account_update {
     margin-top : 2rem;
 }
