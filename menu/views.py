@@ -11,17 +11,13 @@ def home(request):
 
 def menu_am(request):
     DishFormSet = formset_factory(form=MenuForm, extra=7)
-    data = {
-        'form-TOTAL_FORMS': '7',
-        'form-INITIAL_FORMS': '0',
-    }
-    formset = DishFormSet(data)
-    if request == "POST":
-        formset = DishFormSet(request.POST)
-        if formset.is_valid():
-            for form in formset:
-                return HttpResponse(form.cleaned_data())
-
+    formset = DishFormSet()
+    if request.method == "POST":
+        formset2 = DishFormSet(request.POST)
+        if formset2.is_valid():
+            for form in formset2:
+                if form.is_valid():
+                    return HttpResponse(form.cleaned_data)
     return render(request, 'menu/menu_am.html', {'formset': formset})
 
 
