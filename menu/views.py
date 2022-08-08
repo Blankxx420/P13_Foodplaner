@@ -19,7 +19,9 @@ def menu_am(request):
     if request == "POST":
         formset = DishFormSet(request.POST)
         if formset.is_valid():
-            return HttpResponse(formset.cleaned_data)
+            for form in formset:
+                return HttpResponse(form.cleaned_data())
+
     return render(request, 'menu/menu_am.html', {'formset': formset})
 
 
